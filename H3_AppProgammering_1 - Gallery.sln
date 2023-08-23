@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.6.33829.357
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "H3_AppProgammering_1 - Gallery", "H3_AppProgammering_1 - Gallery\H3_AppProgammering_1 - Gallery.csproj", "{70489C7F-F095-4EBE-AA79-E075595CBFDD}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{70489C7F-F095-4EBE-AA79-E075595CBFDD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{70489C7F-F095-4EBE-AA79-E075595CBFDD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{70489C7F-F095-4EBE-AA79-E075595CBFDD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{70489C7F-F095-4EBE-AA79-E075595CBFDD}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {E37683BF-52F6-4012-8FF6-C570C2B0185B}
+	EndGlobalSection
+EndGlobal
