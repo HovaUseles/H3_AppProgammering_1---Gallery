@@ -1,6 +1,8 @@
 ﻿using H3_AppProgammering_1___Gallery.DataHandlers;
+using H3_AppProgammering_1___Gallery.DTOs;
 using H3_AppProgammering_1___Gallery.Models;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.VisualBasic.FileIO;
 using MongoDB.Entities;
 using NuGet.Protocol;
 
@@ -36,10 +38,15 @@ namespace H3_AppProgammering_1___Gallery.Controllers
 
         // POST api/<GalleryEntryController>
         [HttpPost]
-        public async Task<IActionResult> Post([FromBody] GalleryEntry entry)
+        public async Task<IActionResult> Post([FromBody] GalleryEntryDTO entry)
         {
-            entry = await _handler.Create(entry);
-            return Created($"/GalleryEntry/{entry.ID}", entry);
+            GalleryEntry createdEntry = await _handler.Create(
+                entry.Description,
+                entry.FileName,
+                entry.Filetype,
+                entry.ImageBytes
+                );
+            return Created($"/GalleryEntry/{createdEntry.ID}", createdEntry);
         }
 
         // PUT api/<GalleryEntryController>/5
