@@ -1,10 +1,11 @@
-﻿using H3_AppProgammering_1___Gallery.Models;
+﻿using H3_AppProgammering_1___Gallery.Interfaces;
+using H3_AppProgammering_1___Gallery.Models;
 using MongoDB.Driver;
 using MongoDB.Entities;
 
 namespace H3_AppProgammering_1___Gallery.DataHandlers
 {
-    public class GalleryEntryDataHandler
+    public class GalleryEntryDataHandler 
     {
         public GalleryEntryDataHandler()
         {
@@ -20,13 +21,13 @@ namespace H3_AppProgammering_1___Gallery.DataHandlers
             return await DB.Find<GalleryEntry>().ManyAsync(_ => true);
         }
 
-        public async Task<GalleryEntry> Create(string description, string fileName, string fileType, byte[] image)
+        public async Task<GalleryEntry> Create(string description, string fileName, string fileType, string image)
         {
             GalleryEntry galleryEntry = new GalleryEntry {
                 Description = description, 
                 FileName = fileName, 
                 Filetype = fileType, 
-                ImageBytes = image};            
+                Base64Image = image};            
 
             await galleryEntry.SaveAsync();
             return galleryEntry;

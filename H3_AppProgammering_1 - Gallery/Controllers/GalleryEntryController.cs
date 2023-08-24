@@ -44,7 +44,7 @@ namespace H3_AppProgammering_1___Gallery.Controllers
                 entry.Description,
                 entry.FileName,
                 entry.Filetype,
-                entry.ImageBytes
+                entry.Base64Image
                 );
             return Created($"/GalleryEntry/{createdEntry.ID}", createdEntry);
         }
