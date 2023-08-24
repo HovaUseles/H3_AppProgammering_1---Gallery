@@ -5,7 +5,7 @@ using MongoDB.Entities;
 
 namespace H3_AppProgammering_1___Gallery.DataHandlers
 {
-    public class GalleryEntryDataHandler 
+    public class GalleryEntryDataHandler : IGalleryEntry
     {
         public GalleryEntryDataHandler()
         {
@@ -32,13 +32,6 @@ namespace H3_AppProgammering_1___Gallery.DataHandlers
             await galleryEntry.SaveAsync();
             return galleryEntry;
         }
-
-        public async Task<GalleryEntry> Create(GalleryEntry galleryEntry)
-        {
-            await galleryEntry.SaveAsync();
-            return galleryEntry;
-        }
-
 
         public async Task<GalleryEntry> Update(GalleryEntry galleryEntryChanges)
         {
