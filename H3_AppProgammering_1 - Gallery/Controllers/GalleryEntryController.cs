@@ -42,7 +42,7 @@ namespace H3_AppProgammering_1___Gallery.Controllers
         {
             GalleryEntry createdEntry = await _handler.Create(
                 entry.Description,
-                entry.FileName,
+                entry.Filename,
                 entry.Filetype,
                 entry.ImageBytes
                 );

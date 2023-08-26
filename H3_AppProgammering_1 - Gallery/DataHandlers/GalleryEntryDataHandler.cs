@@ -24,7 +24,7 @@ namespace H3_AppProgammering_1___Gallery.DataHandlers
         {
             GalleryEntry galleryEntry = new GalleryEntry {
                 Description = description, 
-                FileName = fileName, 
+                Filename = fileName, 
                 Filetype = fileType, 
                 ImageBytes = image};            
 
