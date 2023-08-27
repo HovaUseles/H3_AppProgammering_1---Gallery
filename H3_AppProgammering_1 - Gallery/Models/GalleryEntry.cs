@@ -1,5 +1,4 @@
-﻿using MongoDB.Driver;
-using MongoDB.Entities;
+﻿using MongoDB.Entities;
 
 namespace H3_AppProgammering_1___Gallery.Models
 {

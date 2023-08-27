@@ -1,6 +1,6 @@
-﻿using H3_AppProgammering_1___Gallery.Interfaces;
+﻿using H3_AppProgammering_1___Gallery.DTOs;
+using H3_AppProgammering_1___Gallery.Interfaces;
 using H3_AppProgammering_1___Gallery.Models;
-using MongoDB.Driver;
 using MongoDB.Entities;
 
 namespace H3_AppProgammering_1___Gallery.DataHandlers
@@ -9,7 +9,9 @@ namespace H3_AppProgammering_1___Gallery.DataHandlers
     {
         public GalleryEntryDataHandler()
         {
-            DB.InitAsync("ImageGallery", "localhost", 27017);
+            var builder = new ConfigurationBuilder().AddJsonFile($"appsettings.json", true, true);
+            var config = builder.Build();
+            DB.InitAsync(config["CollectionName"]!, config["ConnectionString"]!, config.GetValue<int>("PortNumber"));
         }
         public async Task<GalleryEntry> GetById(string id)
         {
@@ -31,6 +33,25 @@ namespace H3_AppProgammering_1___Gallery.DataHandlers
 
             await galleryEntry.SaveAsync();
             return galleryEntry;
+        }
+
+        public async Task<List<GalleryEntry>> CreateMany(List<GalleryEntryDTO> galleryArray)
+        {
+            List<GalleryEntry> galleryEntryList = new List<GalleryEntry>();
+
+            foreach (GalleryEntryDTO item in galleryArray)
+            {
+                galleryEntryList.Add(new GalleryEntry
+                {
+                    Description = item.Description,
+                    FileName = item.FileName,
+                    Filetype = item.Filetype,
+                    Base64Image = item.Base64Image
+                });
+            }
+
+            await galleryEntryList.SaveAsync();
+            return galleryEntryList;
         }
 
         public async Task<GalleryEntry> Update(GalleryEntry galleryEntryChanges)

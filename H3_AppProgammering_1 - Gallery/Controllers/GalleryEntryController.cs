@@ -2,11 +2,6 @@
 using H3_AppProgammering_1___Gallery.DTOs;
 using H3_AppProgammering_1___Gallery.Models;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.VisualBasic.FileIO;
-using MongoDB.Entities;
-using NuGet.Protocol;
-
-// For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
 namespace H3_AppProgammering_1___Gallery.Controllers
 {
@@ -47,6 +42,16 @@ namespace H3_AppProgammering_1___Gallery.Controllers
                 entry.Base64Image
                 );
             return Created($"/GalleryEntry/{createdEntry.ID}", createdEntry);
+        }
+
+        // POST api/<GalleryEntryController>
+        [Route("Bulk")]
+        [HttpPost]
+        public async Task<IActionResult> Post([FromBody] List<GalleryEntryDTO> entryList)
+        {
+            List<GalleryEntry> createdEntries = await _handler.CreateMany(entryList);
+
+            return Created($"/GalleryEntry/{0}", createdEntries);
         }
 
         // PUT api/<GalleryEntryController>/5
